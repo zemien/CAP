@@ -1599,11 +1599,11 @@
 <h2 id="how-cap-uses-aws-sns-and-sqs">How CAP uses AWS SNS and SQS<a class="headerlink" href="#how-cap-uses-aws-sns-and-sqs" title="Permanent link">&para;</a></h2>
 <h3 id="sns">SNS<a class="headerlink" href="#sns" title="Permanent link">&para;</a></h3>
 <p>Because CAP works based on the topic pattern, it needs to use AWS SNS, which simplifies the publish and subscribe architecture of messages.</p>
-<p>When the CAP startup, all subscription names will be registered as SNS topics, and you will see a list of all registered topics in the management console.</p>
-<p>SNS does not support the use of symbols such as <code>.</code> <code>:</code> as the name of the topic, so we replaced it. We replaced <code>.</code> with <code>-</code> and <code>:</code> with <code>_</code></p>
+<p>When CAP startups, all subscription names will be registered as SNS topics, and you will see a list of all registered topics in the management console.</p>
+<p>SNS does not support use of symbols such as <code>.</code> <code>:</code> as the name of the topic, so we replaced it. We replaced <code>.</code> with <code>-</code> and <code>:</code> with <code>_</code></p>
 <div class="admonition note">
 <p class="admonition-title">Precautions</p>
-<p>Amazon SNS currently allows the maximum size of published messages to be 256KB</p>
+<p>Amazon SNS currently allows maximum size of published messages to be 256KB</p>
 </div>
 <p>For example, you have the following two subscriber methods in your current project</p>
 <p><div class="highlight"><pre><span></span><code><span class="na">[CapSubscribe(&quot;sample.sns.foo&quot;)]</span>
@@ -1616,7 +1616,7 @@
 <span class="p">{</span>
 <span class="p">}</span>
 </code></pre></div>
-After the CAP startup, you will see in SNS management console:</p>
+After CAP startups, you will see in SNS management console:</p>
 <p><img alt="img" src="/img/aws-sns-demo.png" /></p>
 <h3 id="sqs">SQS<a class="headerlink" href="#sqs" title="Permanent link">&para;</a></h3>
 <p>For each consumer group, CAP will create a corresponding SQS queue, the name of the queue is the name of the <code>DefaultGroup</code> in the configuration options, and the queue type is Standard.</p>

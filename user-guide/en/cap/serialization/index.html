@@ -1528,7 +1528,7 @@
                 
                 
                 <h1 id="serialization">Serialization<a class="headerlink" href="#serialization" title="Permanent link">&para;</a></h1>
-<p>We provide the <code>ISerializer</code> interface to support serialization of messages. By default, we use json to serialize messages and store them in the database.</p>
+<p>We provide the <code>ISerializer</code> interface to support serialization of messages. By default, json is used to serialize messages and store them in the database.</p>
 <h2 id="custom-serialization">Custom Serialization<a class="headerlink" href="#custom-serialization" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">YourSerializer</span><span class="p">:</span> <span class="n">ISerializer</span>
 <span class="p">{</span>
@@ -1553,7 +1553,7 @@ services.AddCap
 
 <h2 id="message-adapter-removed-in-v30">Message Adapter (removed in v3.0)<a class="headerlink" href="#message-adapter-removed-in-v30" title="Permanent link">&para;</a></h2>
 <p>In heterogeneous systems, sometimes you need to communicate with other systems, but other systems use message objects that may be different from CAP's <a href="../../persistent/general/#_7"><strong>Wrapper Object</strong></a>. This time maybe you need to customize the message wapper.</p>
-<p>The CAP provides the <code>IMessagePacker</code> interface for customizing the <a href="../../persistent/general/#_7"><strong>Wrapper Object</strong></a>. The custom MessagePacker usually packs and unpacks the <code>CapMessage</code> In this process you can add your own business objects.</p>
+<p>CAP provides the <code>IMessagePacker</code> interface for customizing the <a href="../../persistent/general/#_7"><strong>Wrapper Object</strong></a>. Custom MessagePacker usually packs and unpacks the <code>CapMessage</code> In this process you can add your own business objects.</p>
 <p>Usage :</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyMessagePacker</span> <span class="p">:</span> <span class="n">IMessagePacker</span>
 <span class="p">{</span>
@@ -1591,7 +1591,7 @@ services.AddCap
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Next, configure the custom <code>MyMessagePacker</code> to the service.</p>
+<p>Next, add the custom <code>MyMessagePacker</code> to the service.</p>
 <div class="highlight"><pre><span></span><code><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;{</span>  <span class="p">}).</span><span class="n">AddMessagePacker</span><span class="p">&lt;</span><span class="n">MyMessagePacker</span><span class="p">&gt;();</span>
 </code></pre></div>
                 

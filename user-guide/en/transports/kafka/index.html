@@ -1555,9 +1555,9 @@
                 
                 <h1 id="apache-kafka">Apache Kafka®<a class="headerlink" href="#apache-kafka" title="Permanent link">&para;</a></h1>
 <p><a href="https://kafka.apache.org/">Apache Kafka®</a>  is an open-source stream-processing software platform developed by LinkedIn and donated to the Apache Software Foundation, written in Scala and Java.</p>
-<p>CAP has supported Kafka® as message transporter. </p>
+<p>Kafka® can be used in CAP as a message transporter. </p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>To use Kafka transporter, you need to install the following extensions from NuGet:</p>
+<p>To use Kafka transporter, you need to install the following package from NuGet:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">DotNetCore</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">Kafka</span>
 </code></pre></div>
 
@@ -1577,7 +1577,7 @@
 </code></pre></div>
 
 <h4 id="kafka-options">Kafka Options<a class="headerlink" href="#kafka-options" title="Permanent link">&para;</a></h4>
-<p>The Kafka configuration parameters provided directly by the CAP are as follows:</p>
+<p>The Kafka configuration parameters provided directly by the CAP:</p>
 <table>
 <thead>
 <tr>
@@ -1603,7 +1603,7 @@
 </tbody>
 </table>
 <h4 id="kafka-mainconfig-options">Kafka MainConfig Options<a class="headerlink" href="#kafka-mainconfig-options" title="Permanent link">&para;</a></h4>
-<p>If you need <strong>more</strong> native Kakfa related configuration items, you can set it with the <code>MainConfig</code> configuration option:</p>
+<p>If you need <strong>more</strong> native Kakfa related configuration options, you can set them in the <code>MainConfig</code> configuration option:</p>
 <div class="highlight"><pre><span></span><code><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">capOptions</span> <span class="p">=&gt;</span> 
 <span class="p">{</span>
     <span class="n">capOptions</span><span class="p">.</span><span class="n">UseKafka</span><span class="p">(</span><span class="n">kafkaOption</span><span class="p">=&gt;</span>
@@ -1614,7 +1614,7 @@
 <span class="p">});</span>
 </code></pre></div>
 
-<p><code>MainConfig</code> is a configuration dictionary, you can find a list of supported configuration items through the following link.</p>
+<p><code>MainConfig</code> is a configuration dictionary, you can find a list of supported configuration options through the following link.</p>
 <p><a href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md">https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md</a></p>
                 
               

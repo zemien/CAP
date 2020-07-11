@@ -501,8 +501,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#happy-scenario" class="md-nav__link">
-    Happy Scenario
+  <a href="#best-case-scenario" class="md-nav__link">
+    Best case scenario
   </a>
   
 </li>
@@ -1550,8 +1550,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#happy-scenario" class="md-nav__link">
-    Happy Scenario
+  <a href="#best-case-scenario" class="md-nav__link">
+    Best case scenario
   </a>
   
 </li>
@@ -1611,19 +1611,19 @@
 <li>register a user profile  </li>
 <li>do some automated background check that the user can actually access the system</li>
 </ul>
-<p>The second task is to ensure, for example, that this user wasn’t banned from our servers for some reason.</p>
-<p>But it could take time, and we’d like to extract it to a separate microservice. It wouldn’t be reasonable to keep the user waiting for so long just to know that she was registered successfully.</p>
+<p>Second task is to ensure, for example, that this user wasn’t banned from our servers for some reason.</p>
+<p>But it could take time, and we’d like to extract it to a separate microservice. It wouldn’t be reasonable to keep the user waiting for so long just to know that he was registered successfully.</p>
 <p><strong>One way to solve it would be with a message-driven approach including compensation</strong>. Let’s consider the following architecture:</p>
 <ul>
 <li>the user microservice tasked with registering a user profile  </li>
 <li>the validation microservice tasked with doing a background check  </li>
 <li>the messaging platform that supports persistent queues  </li>
 </ul>
-<p>The messaging platform could ensure that the messages sent by the microservices are persisted. Then they would be delivered at a later time if the receiver weren’t currently available</p>
-<h4 id="happy-scenario">Happy Scenario<a class="headerlink" href="#happy-scenario" title="Permanent link">&para;</a></h4>
-<p>In this architecture, a happy scenario would be:</p>
+<p>The messaging platform could ensure that the messages sent by the microservices are persisted. Then they would be delivered at a later time if the receiver wasn't currently available</p>
+<h4 id="best-case-scenario">Best case scenario<a class="headerlink" href="#best-case-scenario" title="Permanent link">&para;</a></h4>
+<p>In this architecture, best case scenario would be:</p>
 <ul>
-<li>the user microservice registers a user, saving information about her in its local database</li>
+<li>the user microservice registers a user, saving information about him in its local database</li>
 <li>the user microservice marks this user with a flag. It could signify that this user hasn’t yet been validated and doesn’t have access to full system functionality</li>
 <li>a confirmation of registration is sent to the user with a warning that not all functionality of the system is accessible right away</li>
 <li>the user microservice sends a message to the validation microservice to do the background check of a user</li>
@@ -1631,7 +1631,7 @@
 <li>if the results are positive, the user microservice unblocks the user</li>
 <li>if the results are negative, the user microservice deletes the user account</li>
 </ul>
-<p>After we’ve gone through all these steps, the system should be in a consistent state. However, for some period of time, the user entity appeared to be in an incomplete state.</p>
+<p>After we’ve gone through all these steps, the system should be in a consistent state. However, for some period of time, user entity appeared to be in an incomplete state.</p>
 <p>The last step, when the user microservice removes the invalid account, is a compensation phase.</p>
 <h4 id="failure-scenarios">Failure Scenarios<a class="headerlink" href="#failure-scenarios" title="Permanent link">&para;</a></h4>
 <p>Now let’s consider some failure scenarios:</p>

@@ -1639,7 +1639,7 @@
 <p>Imdempotence (which you may read a formal definition of on <a href="https://en.wikipedia.org/wiki/Idempotence">Wikipedia</a>, when we are talking about messaging, is when a message redelivery can be handled without ending up in an unintended state.</p>
 <h2 id="delivery-guarantees1">Delivery guarantees<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#delivery-guarantees1" title="Permanent link">&para;</a></h2>
 <p>Before we talk about idempotency, let's talk about the delivery of messages on the consumer side.</p>
-<p>Since CAP is not a used MS DTC or other type of 2PC distributed transaction mechanism, there is a problem that at least the message is strictly delivered once. Specifically, in a message-based system, there are three possibilities:</p>
+<p>Since CAP doesn't uses MS DTC or other type of 2PC distributed transaction mechanism, there is a problem that the message is strictly delivered at least once. Specifically, in a message-based system, there are three possibilities:</p>
 <ul>
 <li>Exactly Once(*)  </li>
 <li>At Most Once </li>
@@ -1660,8 +1660,8 @@
         2. Put message back into the queue
 </code></pre></div>
 
-<p>In the sunshine scenario, this is all well and good – your messages will be received, and work transactions will be committed, and you will be happy.</p>
-<p>However, the sun does not always shine, and stuff tends to fail – especially if you do enough stuff. Consider e.g. what would happen if anything fails after having performed step (1), and then – when you try to execute step (4)/(2) (i.e. put the message back into the queue) – the network was temporarily unavailable, or the message broker restarted, or the host machine decided to reboot because it had installed an update.</p>
+<p>In the best case scenario, this is all well and good – your messages will be received, and work transactions will be committed, and you will be happy.</p>
+<p>However, the sun does not always shine, and stuff tends to fail – especially if you do alot of stuff. Consider e.g. what would happen if anything fails after having performed step (1), and then – when you try to execute step (4)/(2) (i.e. put the message back into the queue) – the network was temporarily unavailable, or the message broker restarted, or the host machine decided to reboot because it had installed an update.</p>
 <p>This can be OK if it's what you want, but most things in CAP revolve around the concept of DURABLE messages, i.e. messages whose contents is just as important as the data in your database.</p>
 <h3 id="at-least-once">At Least Once<a class="headerlink" href="#at-least-once" title="Permanent link">&para;</a></h3>
 <p>This delivery guarantee covers the case when you are guaranteed to receive all messages either once, or maybe more times if something has failed.</p>
@@ -1684,7 +1684,7 @@
 <p>It depends on what you're doing 😄 maybe it's a transaction in a relational database (which traditionally have pretty good support in this regard), maybe it's a transaction in a document database that happens to support transaction (like RavenDB or Postgres), or maybe it's a conceptual transaction in the form of whichever work you happen to carry out as a consequence of handling a message, e.g. update a bunch of documents in MongoDB, move some files around in the file system, or mutate some obscure in-mem data structure.</p>
 <p>The fact that the "work transaction" is just a conceptual thing is what makes it impossible to support the aforementioned Exactly Once delivery guarantee – it's just not generally possible to commit or roll back a "work transaction" and a "queue transaction" (which is what we could call the protocol carried out with the message queue systems) atomically and consistently.</p>
 <h2 id="idempotence-at-cap">Idempotence at CAP<a class="headerlink" href="#idempotence-at-cap" title="Permanent link">&para;</a></h2>
-<p>In the CAP, the delivery guarantees we use is <strong>At Least Once</strong>.</p>
+<p>In CAP, <strong>At Least Once</strong>  delivery guarantee is used.</p>
 <p>Since we have a temporary storage medium (database table), we may be able to do At Most Once, but in order to strictly guarantee that the message will not be lost, we do not provide related functions or configurations.</p>
 <h3 id="why-are-we-not-providingachieving-idempotency">Why are we not providing(achieving) idempotency ?<a class="headerlink" href="#why-are-we-not-providingachieving-idempotency" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1694,8 +1694,8 @@
 For example, if the consumer is debiting service, if the execution of the debit is successful, but fails to write the debit log, the CAP will judge that the consumer failed to execute and try again. If the client does not guarantee idempotency, the framework will retry it, which will inevitably lead to serious consequences for multiple debits.</p>
 </li>
 <li>
-<p>The implementation of the Consumer method succeeded, but received the same message.  </p>
-<p>The scenario is also possible here. If the Consumer has been successfully executed at the beginning, but for some reason, such as the Broker recovery, and received the same message, the CAP will consider this a new after receiving the Broker message. The message will be executed again by the Consumer. Because it is a new message, the CAP cannot be idempotent at this time.</p>
+<p>The execution of the Consumer method succeeded, but received the same message.  </p>
+<p>This scenario is also possible. If the Consumer has been successfully executed at the beginning, but for some reason, such as the Broker recovery, same message has been received, CAP will consider this as a new message after receiving the Broker message. Message will be executed again by the Consumer. Because it is a new message, CAP cannot be idempotent at this time.</p>
 </li>
 <li>
 <p>The current data storage mode can not be idempotent.  </p>
@@ -1706,7 +1706,7 @@ For example, if the consumer is debiting service, if the execution of the debit 
 <p>Many event-driven frameworks require users to ensure idempotent operations, such as ENode, RocketMQ, etc...</p>
 </li>
 </ol>
-<p>From an implementation point of view, CAP can do some less stringent idempotence, but strict idempotent cannot.</p>
+<p>From an implementation point of view, CAP can do some less stringent idempotence, but strict idempotent can not be guaranteed.</p>
 <h3 id="naturally-idempotent-message-processing">Naturally idempotent message processing<a class="headerlink" href="#naturally-idempotent-message-processing" title="Permanent link">&para;</a></h3>
 <p>Generally, the best way to deal with message redeliveries is to make the processing of each message naturally idempotent.</p>
 <p>Natural idempotence arises when the processing of a message consists of calling an idempotent method on a domain object, like</p>

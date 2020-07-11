@@ -1554,7 +1554,7 @@
                 
                 
                 <h1 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h1>
-<p>The CAP provides a Dashboard for viewing messages, and the features provided by Dashboard make it easy to view and manage messages.</p>
+<p>CAP provides a Dashboard for viewing messages, and features provided by Dashboard make it easy to view and manage messages.</p>
 <h2 id="enable-dashboard">Enable Dashboard<a class="headerlink" href="#enable-dashboard" title="Permanent link">&para;</a></h2>
 <p>By default, Dashboard middleware will not be launched. To enable Dashboard functionality you need to add the following code to your configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span>
@@ -1574,18 +1574,18 @@
 <blockquote>
 <p>Default ：'/cap'</p>
 </blockquote>
-<p>You can change the path of the Dashboard by modifying this configuration item.</p>
+<p>You can change the path of the Dashboard by modifying this configuration option.</p>
 <ul>
 <li>StatsPollingInterval</li>
 </ul>
 <blockquote>
 <p>Default: 2000ms</p>
 </blockquote>
-<p>This configuration item is used to configure the Dashboard front end to get the polling time of the status interface (/stats).</p>
+<p>This configuration option is used to configure the Dashboard front end to get the polling time of the status interface (/stats).</p>
 <ul>
 <li>Authorization</li>
 </ul>
-<p>This configuration item is used to configure the authorization filter when accessing the Dashboard. The default filter allows LAN access. When your application wants to provide external network access, you can customize the authentication rules by setting this configuration. See the next section for details.</p>
+<p>This configuration option is used to configure the authorization filter when accessing the Dashboard. The default filter allows LAN access. When your application wants to provide external network access, you can customize authentication rules by setting this configuration. See the next section for details.</p>
 <h3 id="custom-authentication">Custom authentication<a class="headerlink" href="#custom-authentication" title="Permanent link">&para;</a></h3>
 <p>Dashboard authentication can be customized by implementing the <code>IDashboardAuthorizationFilter</code> interface.</p>
 <p>The following is a sample code that determines if access is allowed by reading the accesskey from the url request parameter.</p>

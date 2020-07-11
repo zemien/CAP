@@ -1598,23 +1598,23 @@
                 <h1 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h1>
 <p>The data sent by using the <code>ICapPublisher</code> interface is called <code>Message</code>.</p>
 <h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
-<p>After the CAP receives the message, it sends the message to Transport, which is transported by transport.</p>
-<p>When you send using the <code>ICapPublisher</code> interface, the CAP will dispatch the message to the corresponding Transport. Currently, bulk messaging is not supported.</p>
-<p>For more information on transports, see the <a href="../../transports/general/">Transports</a> section.</p>
+<p>After CAP receives a message, it sends the message to Transport, which is transported by transport.</p>
+<p>When you send message using the <code>ICapPublisher</code> interface, CAP will dispatch message to the corresponding Transport. Currently, bulk messaging is not supported.</p>
+<p>For more information on transports, see <a href="../../transports/general/">Transports</a> section.</p>
 <h2 id="persistent">Persistent<a class="headerlink" href="#persistent" title="Permanent link">&para;</a></h2>
-<p>The CAP will storage after receiving the message. For more information on storage, see the <a href="../../persistent/general/">Persistent</a> section.</p>
+<p>CAP will store the message after receiving it. For more information on storage, see the <a href="../../persistent/general/">Persistent</a> section.</p>
 <h2 id="retry">Retry<a class="headerlink" href="#retry" title="Permanent link">&para;</a></h2>
-<p>Retrying plays an important role in the overall CAP architecture design, and CAPs retry for messages that fail to send or fail to execute. There are several retry strategies used throughout the CAP design process.</p>
+<p>Retrying plays an important role in the overall CAP architecture design, CAP retry messages that fail to send or fail to execute. There are several retry strategies used throughout the CAP design process.</p>
 <h3 id="send-retry">Send retry<a class="headerlink" href="#send-retry" title="Permanent link">&para;</a></h3>
-<p>During the message sending process, when the broker crashes or the connection fails or an abnormality occurs, the CAP will retry the sending. Retry 3 times for the first time, retry every minute after 4 minutes, and +1 retries. When the total number of times reaches 50, the CAP will stop retrying.</p>
-<p>You can adjust the total number of default retries by setting <code>FailedRetryCount</code> in CapOptions.</p>
+<p>During the message sending process, when the broker crashes or the connection fails or an abnormality occurs, the CAP will retry the sending. Retry 3 times for the first time, retry every minute after 4 minutes, and +1 retries. When the total number of times reaches 50,CAP will stop retrying.</p>
+<p>You can adjust the total number of retries by setting <code>FailedRetryCount</code> in CapOptions.</p>
 <p>It will stop when the maximum number of times is reached. You can see the reason for the failure in Dashboard and choose whether to manually retry.</p>
 <h3 id="consumption-retry">Consumption retry<a class="headerlink" href="#consumption-retry" title="Permanent link">&para;</a></h3>
 <p>The consumer method is executed when the Consumer receives the message and will retry when an exception occurs. This retry strategy is the same as the send retry.</p>
 <h2 id="data-cleanup">Data Cleanup<a class="headerlink" href="#data-cleanup" title="Permanent link">&para;</a></h2>
 <p>There is an <code>ExpiresAt</code> field in the database message table indicating the expiration time of the message. When the message is sent successfully, the status will be changed to <code>Successed</code>, and <code>ExpiresAt</code> will be set to <strong>1 hour</strong> later. </p>
 <p>Consuming failure will change the message status to <code>Failed</code> and <code>ExpiresAt</code> will be set to <strong>15 days</strong> later.</p>
-<p>By default, the data of the message table is deleted <strong>every hour</strong> to avoid performance degradation caused by too much data. The cleanup strategy is <code>ExpiresAt</code> is not empty and is less than the current time. </p>
+<p>By default, the data of the message in the table is deleted <strong>every hour</strong> to avoid performance degradation caused by too much data. The cleanup strategy <code>ExpiresAt</code> is performed when field is not empty and is less than the current time. </p>
 <p>That is to say, the message with the status Failed (normally they have been retried 50 times), if you do not have manual intervention for 15 days, it will <strong>also be</strong> cleaned up.</p>
                 
               

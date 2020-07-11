@@ -1608,13 +1608,13 @@
                 
                 
                 <h1 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h1>
-<p>CAP need to use storage media with persistence capabilities to store event messages, such as through databases or other NoSql facilities. CAP uses this approach to deal with the loss of messages in all environments or network anomalies. The reliability of messages is the cornerstone of distributed transactions, so messages cannot be lost under any circumstances.</p>
+<p>CAP needs to use storage media with persistence capabilities to store event messages, such as through databases or other NoSql facilities. CAP uses this approach to deal with loss of messages in all environments or network anomalies. Reliability of messages is the cornerstone of distributed transactions, so messages cannot be lost under any circumstances.</p>
 <h2 id="persistent">Persistent<a class="headerlink" href="#persistent" title="Permanent link">&para;</a></h2>
 <h3 id="before-sent">Before sent<a class="headerlink" href="#before-sent" title="Permanent link">&para;</a></h3>
-<p>Before the message enters the message queue, the CAP uses the local database table to persist the message, which ensures that the message is not lost when the message queue is abnormal or a network error occurs.</p>
+<p>Before message enters the message queue, CAP uses the local database table to persist the message, which ensures that the message is not lost when the message queue is abnormal or a network error occurs.</p>
 <p>To ensure the reliability of this mechanism, CAP uses the same database transactions as the business code to ensure that business operations and CAP messages are consistent in the persistence process. That is to say, in the process of message persistence, the database will be rolled back when any one of the exceptions occurs.</p>
 <h3 id="after-sent">After sent<a class="headerlink" href="#after-sent" title="Permanent link">&para;</a></h3>
-<p>After the message enters the message queue, the CAP will start the persistence function of the message queue. We need to explain how the CAP message is persisted in RabbitMQ and Kafka.</p>
+<p>After the message enters the message queue, CAP will start the persistence function of the message queue. We need to explain how CAP message is persisted in RabbitMQ and Kafka.</p>
 <p>For message persistence in RabbitMQ, CAP uses a consumer queue with message persistence, but there may be exceptions here.</p>
 <div class="admonition info">
 <p class="admonition-title">Ready for production?</p>
@@ -1622,7 +1622,7 @@
 </div>
 <p>Since Kafka is born with message persistence using files, Kafka will ensure that messages are properly persisted without loss after the message enters Kafka.</p>
 <h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
-<p>After the CAP started, two tables are generated into the persistent, by default the name is <code>Cap.Published</code> and <code>Cap.Received</code>.</p>
+<p>After CAP is started, two tables are generated into the persistent, by default the name is <code>Cap.Published</code> and <code>Cap.Received</code>.</p>
 <h3 id="storage-data-structure">Storage Data Structure<a class="headerlink" href="#storage-data-structure" title="Permanent link">&para;</a></h3>
 <p>Table structure of <strong>Published</strong> :</p>
 <table>
@@ -1734,7 +1734,7 @@
 </tbody>
 </table>
 <h3 id="wapper-object">Wapper Object<a class="headerlink" href="#wapper-object" title="Permanent link">&para;</a></h3>
-<p>When the CAP sends a message, it will store the original message object in a second package in the <code>Content</code> field. </p>
+<p>When CAP sends a message, it will store original message object in a second package in the <code>Content</code> field. </p>
 <p>The following is the <strong>Wapper Object</strong> data structure of Content field.</p>
 <table>
 <thead>

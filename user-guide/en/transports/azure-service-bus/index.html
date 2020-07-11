@@ -1541,13 +1541,13 @@
                 
                 <h1 id="azure-service-bus">Azure Service Bus<a class="headerlink" href="#azure-service-bus" title="Permanent link">&para;</a></h1>
 <p>Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. </p>
-<p>CAP supports Azure Service Bus as a message transporter.</p>
+<p>Azure services can be used in CAP as a message transporter. </p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Requirement</p>
 <p>For the Service Bus pricing layer, CAP requires "standard" or "advanced" to support Topic functionality.</p>
 </div>
-<p>To use Azure Service Bus as a message transport, you need to install the following extensions from NuGet:</p>
+<p>To use Azure Service Bus as a message transport, you need to install the following package from NuGet:</p>
 <p><div class="highlight"><pre><span></span><code><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">DotNetCore</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">AzureServiceBus</span>
 </code></pre></div>
 Next, add configuration items to the <code>ConfigureServices</code> method of <code>Startup.cs</code>:</p>
@@ -1567,7 +1567,7 @@ Next, add configuration items to the <code>ConfigureServices</code> method of <c
 </code></pre></div>
 
 <h4 id="azureservicebus-options">AzureServiceBus Options<a class="headerlink" href="#azureservicebus-options" title="Permanent link">&para;</a></h4>
-<p>The AzureServiceBus configuration options provided directly by the CAP are as follows:</p>
+<p>The AzureServiceBus configuration options provided directly by the CAP:</p>
 <table>
 <thead>
 <tr>

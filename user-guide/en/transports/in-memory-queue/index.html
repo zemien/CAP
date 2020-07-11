@@ -1516,11 +1516,11 @@
                 <h1 id="in-memory-queue">In-Memory Queue<a class="headerlink" href="#in-memory-queue" title="Permanent link">&para;</a></h1>
 <p>In Memory Queue is a memory-based message queue provided by <a href="https://github.com/yang-xiaodong/Savorboard.CAP.InMemoryMessageQueue">Community</a>.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>To use In Memory Queue as a message transporter, you need to install the following extensions from NuGet:</p>
+<p>To use In Memory Queue as a message transporter, you need to install the following package from NuGet:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">Savorboard</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">InMemoryMessageQueue</span>
 </code></pre></div>
 
-<p>Next, add configuration items to the <code>ConfigureServices</code> method of <code>Startup.cs</code>:</p>
+<p>Next, add configuration options to the <code>ConfigureServices</code> method of <code>Startup.cs</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">void</span> <span class="nf">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// ...</span>
