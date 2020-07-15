@@ -153,14 +153,16 @@
         
           
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -271,10 +273,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Documentation
@@ -470,17 +474,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
-      Transports
+      Transport
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Transports" data-md-level="2">
+    <nav class="md-nav" aria-label="Transport" data-md-level="2">
       <label class="md-nav__title" for="nav-2-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Transports
+        Transport
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -491,7 +495,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/general/" title="General" class="md-nav__link">
+    <a href="../../transport/general/" title="General" class="md-nav__link">
       General
     </a>
   </li>
@@ -503,7 +507,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/rabbitmq/" title="RabbitMQ" class="md-nav__link">
+    <a href="../../transport/rabbitmq/" title="RabbitMQ" class="md-nav__link">
       RabbitMQ
     </a>
   </li>
@@ -515,7 +519,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/kafka/" title="Apache Kafka®" class="md-nav__link">
+    <a href="../../transport/kafka/" title="Apache Kafka®" class="md-nav__link">
       Apache Kafka®
     </a>
   </li>
@@ -527,7 +531,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
+    <a href="../../transport/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
       Azure Service Bus
     </a>
   </li>
@@ -539,7 +543,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/aws-sqs/" title="Amazon SQS" class="md-nav__link">
+    <a href="../../transport/aws-sqs/" title="Amazon SQS" class="md-nav__link">
       Amazon SQS
     </a>
   </li>
@@ -551,7 +555,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../transports/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
+    <a href="../../transport/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
       In-Memory Queue
     </a>
   </li>
@@ -572,17 +576,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
     <label class="md-nav__link" for="nav-2-4">
-      Persistent
+      Storage
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Persistent" data-md-level="2">
+    <nav class="md-nav" aria-label="Storage" data-md-level="2">
       <label class="md-nav__title" for="nav-2-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Persistent
+        Storage
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -593,7 +597,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/general/" title="General" class="md-nav__link">
+    <a href="../../storage/general/" title="General" class="md-nav__link">
       General
     </a>
   </li>
@@ -605,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/sqlserver/" title="SQL Server" class="md-nav__link">
+    <a href="../../storage/sqlserver/" title="SQL Server" class="md-nav__link">
       SQL Server
     </a>
   </li>
@@ -617,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/mysql/" title="MySQL" class="md-nav__link">
+    <a href="../../storage/mysql/" title="MySQL" class="md-nav__link">
       MySQL
     </a>
   </li>
@@ -629,7 +633,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/postgresql/" title="PostgreSql" class="md-nav__link">
+    <a href="../../storage/postgresql/" title="PostgreSql" class="md-nav__link">
       PostgreSql
     </a>
   </li>
@@ -641,7 +645,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/mongodb/" title="MongoDB" class="md-nav__link">
+    <a href="../../storage/mongodb/" title="MongoDB" class="md-nav__link">
       MongoDB
     </a>
   </li>
@@ -653,7 +657,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../persistent/in-memory-storage/" title="In-Memory" class="md-nav__link">
+    <a href="../../storage/in-memory-storage/" title="In-Memory" class="md-nav__link">
       In-Memory
     </a>
   </li>
@@ -668,10 +672,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" checked>
     
     <label class="md-nav__link" for="nav-2-5">
       Monitoring
@@ -688,6 +694,60 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Consul
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Consul" class="md-nav__link md-nav__link--active">
+      Consul
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#consul-configuration-for-dashboard" class="md-nav__link">
+    Consul Configuration for dashboard
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
         
           
           
@@ -1013,7 +1073,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/general/" title="简介" class="md-nav__link">
+    <a href="../../../zh/transport/general/" title="简介" class="md-nav__link">
       简介
     </a>
   </li>
@@ -1025,7 +1085,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/rabbitmq/" title="RabbitMQ" class="md-nav__link">
+    <a href="../../../zh/transport/rabbitmq/" title="RabbitMQ" class="md-nav__link">
       RabbitMQ
     </a>
   </li>
@@ -1037,7 +1097,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/kafka/" title="Apache Kafka®" class="md-nav__link">
+    <a href="../../../zh/transport/kafka/" title="Apache Kafka®" class="md-nav__link">
       Apache Kafka®
     </a>
   </li>
@@ -1049,7 +1109,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
+    <a href="../../../zh/transport/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
       Azure Service Bus
     </a>
   </li>
@@ -1061,7 +1121,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/aws-sqs/" title="Amazon SQS" class="md-nav__link">
+    <a href="../../../zh/transport/aws-sqs/" title="Amazon SQS" class="md-nav__link">
       Amazon SQS
     </a>
   </li>
@@ -1073,7 +1133,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/transports/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
+    <a href="../../../zh/transport/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
       In-Memory Queue
     </a>
   </li>
@@ -1094,17 +1154,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
     
     <label class="md-nav__link" for="nav-3-4">
-      持久化
+      存储
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="持久化" data-md-level="2">
+    <nav class="md-nav" aria-label="存储" data-md-level="2">
       <label class="md-nav__title" for="nav-3-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        持久化
+        存储
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1115,7 +1175,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/general/" title="简介" class="md-nav__link">
+    <a href="../../../zh/storage/general/" title="简介" class="md-nav__link">
       简介
     </a>
   </li>
@@ -1127,7 +1187,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/sqlserver/" title="SQL Server" class="md-nav__link">
+    <a href="../../../zh/storage/sqlserver/" title="SQL Server" class="md-nav__link">
       SQL Server
     </a>
   </li>
@@ -1139,7 +1199,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/mysql/" title="MySQL" class="md-nav__link">
+    <a href="../../../zh/storage/mysql/" title="MySQL" class="md-nav__link">
       MySQL
     </a>
   </li>
@@ -1151,7 +1211,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/postgresql/" title="PostgreSql" class="md-nav__link">
+    <a href="../../../zh/storage/postgresql/" title="PostgreSql" class="md-nav__link">
       PostgreSql
     </a>
   </li>
@@ -1163,7 +1223,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/mongodb/" title="MongoDB" class="md-nav__link">
+    <a href="../../../zh/storage/mongodb/" title="MongoDB" class="md-nav__link">
       MongoDB
     </a>
   </li>
@@ -1175,7 +1235,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/persistent/in-memory-storage/" title="In-Memory" class="md-nav__link">
+    <a href="../../../zh/storage/in-memory-storage/" title="In-Memory" class="md-nav__link">
       In-Memory
     </a>
   </li>
@@ -1241,8 +1301,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/monitoring/diagnostics/" title="Diagnostics" class="md-nav__link">
-      Diagnostics
+    <a href="../../../zh/monitoring/diagnostics/" title="性能追踪" class="md-nav__link">
+      性能追踪
     </a>
   </li>
 
@@ -1255,18 +1315,6 @@
   <li class="md-nav__item">
     <a href="../../../zh/monitoring/health-checks/" title="健康检查" class="md-nav__link">
       健康检查
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../zh/monitoring/metrics/" title="Metrics" class="md-nav__link">
-      Metrics
     </a>
   </li>
 
@@ -1430,6 +1478,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#consul-configuration-for-dashboard" class="md-nav__link">
+    Consul Configuration for dashboard
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1449,7 +1514,37 @@
                 
                 
                 <h1 id="consul">Consul<a class="headerlink" href="#consul" title="Permanent link">&para;</a></h1>
-<p>Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud.</p>
+<p><a href="https://www.consul.io/">Consul</a> is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud.</p>
+<h2 id="consul-configuration-for-dashboard">Consul Configuration for dashboard<a class="headerlink" href="#consul-configuration-for-dashboard" title="Permanent link">&para;</a></h2>
+<p>CAP's Dashboard uses Consul as a service discovery to get the data of other nodes, and you can switch to the Servers page to see other nodes.</p>
+<p><img alt="" src="https://camo.githubusercontent.com/54c00c6ae65ce1d7b9109ed8cbcdca703a050c47/687474703a2f2f696d61676573323031372e636e626c6f67732e636f6d2f626c6f672f3235303431372f3230313731302f3235303431372d32303137313030343232313030313838302d313136323931383336322e706e67" /></p>
+<p>Click the <code>Switch</code> button to switch to the target node, CAP will use a proxy to get the data of the node you switched to.</p>
+<p>The following is a configuration example, you need to configure them on each node.</p>
+<div class="highlight"><pre><span></span><code><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span>
+<span class="p">{</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">UseMySql</span><span class="p">(</span><span class="n">Configuration</span><span class="p">.</span><span class="n">GetValue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="s">&quot;ConnectionString&quot;</span><span class="p">));</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">UseRabbitMQ</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">UseDashboard</span><span class="p">();</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">UseDiscovery</span><span class="p">(</span><span class="n">_</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">DiscoveryServerHostName</span> <span class="p">=</span> <span class="s">&quot;localhost&quot;</span><span class="p">;</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">DiscoveryServerPort</span> <span class="p">=</span> <span class="m">8500</span><span class="p">;</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">CurrentNodeHostName</span> <span class="p">=</span> <span class="n">Configuration</span><span class="p">.</span><span class="n">GetValue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="s">&quot;ASPNETCORE_HOSTNAME&quot;</span><span class="p">);</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">CurrentNodePort</span> <span class="p">=</span> <span class="n">Configuration</span><span class="p">.</span><span class="n">GetValue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&quot;ASPNETCORE_PORT&quot;</span><span class="p">);</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">NodeId</span> <span class="p">=</span> <span class="n">Configuration</span><span class="p">.</span><span class="n">GetValue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="s">&quot;NodeId&quot;</span><span class="p">);</span>
+        <span class="n">_</span><span class="p">.</span><span class="n">NodeName</span> <span class="p">=</span> <span class="n">Configuration</span><span class="p">.</span><span class="n">GetValue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="s">&quot;NodeName&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>Consul 1.6.2:</p>
+<div class="highlight"><pre><span></span><code>consul agent -dev
+</code></pre></div>
+
+<p>Windows 10, ASP.NET Core 3.1:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> <span class="nv">ASPNETCORE_HOSTNAME</span><span class="o">=</span>localhost<span class="o">&amp;&amp;</span> <span class="nb">set</span> <span class="nv">ASPNETCORE_PORT</span><span class="o">=</span><span class="m">5001</span><span class="o">&amp;&amp;</span> dotnet run --urls<span class="o">=</span>http://localhost:5001 <span class="nv">NodeId</span><span class="o">=</span><span class="m">1</span> <span class="nv">NodeName</span><span class="o">=</span>CAP-1 <span class="nv">ConnectionString</span><span class="o">=</span><span class="s2">&quot;Server=localhost;Database=aaa;UserId=xxx;Password=xxx;&quot;</span>
+<span class="nb">set</span> <span class="nv">ASPNETCORE_HOSTNAME</span><span class="o">=</span>localhost<span class="o">&amp;&amp;</span> <span class="nb">set</span> <span class="nv">ASPNETCORE_PORT</span><span class="o">=</span><span class="m">5002</span><span class="o">&amp;&amp;</span> dotnet run --urls<span class="o">=</span>http://localhost:5002 <span class="nv">NodeId</span><span class="o">=</span><span class="m">2</span> <span class="nv">NodeName</span><span class="o">=</span>CAP-2 <span class="nv">ConnectionString</span><span class="o">=</span><span class="s2">&quot;Server=localhost;Database=bbb;UserId=xxx;Password=xxx;&quot;</span>
+</code></pre></div>
                 
               
               
@@ -1464,6 +1559,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../storage/in-memory-storage/" title="In-Memory" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                In-Memory
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../dashboard/" title="Dashboard" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dashboard
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
