@@ -442,6 +442,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#compensating-transaction" class="md-nav__link">
+    Compensating transaction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    异构系统集成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scheduling" class="md-nav__link">
     Scheduling
   </a>
@@ -493,18 +507,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../sagas/" title="Sagas" class="md-nav__link">
-      Sagas
-    </a>
   </li>
 
         
@@ -1036,18 +1038,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../zh/cap/sagas/" title="Sagas" class="md-nav__link">
-      Sagas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../zh/cap/serialization/" title="序列化" class="md-nav__link">
       序列化
     </a>
@@ -1528,6 +1518,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#compensating-transaction" class="md-nav__link">
+    Compensating transaction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    异构系统集成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scheduling" class="md-nav__link">
     Scheduling
   </a>
@@ -1597,6 +1601,97 @@
                 
                 <h1 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h1>
 <p>The data sent by using the <code>ICapPublisher</code> interface is called <code>Message</code>.</p>
+<h2 id="compensating-transaction">Compensating transaction<a class="headerlink" href="#compensating-transaction" title="Permanent link">&para;</a></h2>
+<p>Wiki :
+<a href="https://en.wikipedia.org/wiki/Compensating_transaction">Compensating transaction</a></p>
+<p>In some cases, consumers need to return the execution value to tell the publisher, so that the publisher can implement some compensation actions, usually we called message compensation.</p>
+<p>Usually you can notify the upstream by republishing a new message in the consumer code. CAP provides a simple way to do this. You can specify <code>callbackName</code> parameter when publishing message, usually this only applies to point-to-point consumption. The following is an example.</p>
+<p>For example, in an e-commerce application, the initial status of the order is pending, and the status is marked as succeeded when the product quantity is successfully deducted, otherwise it is failed.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// =============  Publisher =================</span>
+
+<span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;place.order.qty.deducted&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">OrderId</span> <span class="p">=</span> <span class="m">1234</span><span class="p">,</span> <span class="n">ProductId</span> <span class="p">=</span> <span class="m">23255</span><span class="p">,</span> <span class="n">Qty</span> <span class="p">=</span> <span class="m">1</span> <span class="p">},</span> <span class="s">&quot;place.order.mark.status&quot;</span><span class="p">);</span>    
+
+<span class="c1">// publisher using `callbackName` to subscribe consumer result</span>
+
+<span class="na">[CapSubscribe(&quot;place.order.mark.status&quot;)]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MarkOrderStatus</span><span class="p">(</span><span class="n">JToken</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">orderId</span> <span class="p">=</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&quot;OrderId&quot;</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">isSuccess</span> <span class="p">=</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;(</span><span class="s">&quot;IsSuccess&quot;</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">isSuccess</span><span class="p">)</span>
+       <span class="c1">//mark order status to succeeded</span>
+    <span class="k">else</span>
+       <span class="c1">//mark order status to failed</span>
+<span class="p">}</span>
+
+<span class="c1">// =============  Consumer ===================</span>
+
+<span class="na">[CapSubscribe(&quot;place.order.qty.deducted&quot;)]</span>
+<span class="k">public</span> <span class="kt">object</span> <span class="nf">DeductProductQty</span><span class="p">(</span><span class="n">JToken</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">orderId</span> <span class="p">=</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&quot;OrderId&quot;</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">productId</span> <span class="p">=</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&quot;ProductId&quot;</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">qty</span> <span class="p">=</span> <span class="n">param</span><span class="p">.</span><span class="n">Value</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="s">&quot;Qty&quot;</span><span class="p">);</span>
+
+    <span class="c1">//business logic </span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">OrderId</span> <span class="p">=</span> <span class="n">orderId</span><span class="p">,</span> <span class="n">IsSuccess</span> <span class="p">=</span> <span class="k">true</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="_1">异构系统集成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在 3.0+ 版本中，我们对消息结构进行了重构，我们利用了消息队列中消息协议中的 Header 来传输一些额外信息，以便于在 Body 中我们可以做到不需要修改或包装使用者的原始消息数据格式和内容进行发送。</p>
+<p>这样的做法是合理的，它有助于在异构系统中进行更好的集成，相对于以前的版本使用者不需要知道CAP内部使用的消息结构就可以完成集成工作。</p>
+<p>现在我们将消息划分为 Header 和 Body 来进行传输。</p>
+<p>Body 中的数据为用户发送的原始消息内容，也就是调用 Publish 方法发送的内容，我们不进行任何包装仅仅是序列化后传递到消息队列。</p>
+<p>在 Header 中，我们需要传递一些额外信息以便于CAP在收到消息时能够提取到关键特征进行操作。</p>
+<p>以下是在异构系统中，需要在发消息的时候向消息的Header 中写入的内容：</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cap-msg-id</td>
+<td>string</td>
+<td>消息Id， 由雪花算法生成，也可以是 guid</td>
+</tr>
+<tr>
+<td>cap-msg-name</td>
+<td>string</td>
+<td>消息名称，即 Topic 名字</td>
+</tr>
+<tr>
+<td>cap-msg-type</td>
+<td>string</td>
+<td>消息的类型, 即 typeof(T).FullName (非必须)</td>
+</tr>
+<tr>
+<td>cap-senttime</td>
+<td>stringg</td>
+<td>发送的时间 (非必须)</td>
+</tr>
+</tbody>
+</table>
+<p>以 Java 系统发送 RabbitMQ 为例：</p>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">headers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;cap-msg-id&quot;</span><span class="p">,</span>  <span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+<span class="n">headers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;cap-msg-name&quot;</span><span class="p">,</span> <span class="n">routingKey</span><span class="p">);</span>
+
+<span class="n">channel</span><span class="p">.</span><span class="na">basicPublish</span><span class="p">(</span><span class="n">exchangeName</span><span class="p">,</span> <span class="n">routingKey</span><span class="p">,</span>
+             <span class="k">new</span> <span class="n">AMQP</span><span class="p">.</span><span class="na">BasicProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+               <span class="p">.</span><span class="na">headers</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+               <span class="p">.</span><span class="na">build</span><span class="p">(),</span>
+               <span class="n">messageBodyBytes</span><span class="p">);</span>
+<span class="c1">// messageBodyBytes = &quot;发送的json&quot;.getBytes(Charset.forName(&quot;UTF-8&quot;))</span>
+<span class="c1">// 注意 messageBody 默认为 json 的 byte[]，如果采用其他系列化，需要在CAP侧自定义反序列化器</span>
+</code></pre></div>
+
 <h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
 <p>After CAP receives a message, it sends the message to Transport(RabitMq, Kafka...), which is transported by transport.</p>
 <p>When you send message using the <code>ICapPublisher</code> interface, CAP will dispatch message to the corresponding Transport. Currently, bulk messaging is not supported.</p>
@@ -1612,7 +1707,7 @@
 <h3 id="consumption-retry">Consumption retry<a class="headerlink" href="#consumption-retry" title="Permanent link">&para;</a></h3>
 <p>The consumer method is executed when the Consumer receives the message and will retry when an exception occurs. This retry strategy is the same as the send retry.</p>
 <h2 id="data-cleanup">Data Cleanup<a class="headerlink" href="#data-cleanup" title="Permanent link">&para;</a></h2>
-<p>There is an <code>ExpiresAt</code> field in the database message table indicating the expiration time of the message. When the message is sent successfully, status will be changed to <code>Successed</code>, and <code>ExpiresAt</code> will be set to <strong>1 hour</strong> later. </p>
+<p>There is an <code>ExpiresAt</code> field in the database message table indicating the expiration time of the message. When the message is sent successfully, status will be changed to <code>Successed</code>, and <code>ExpiresAt</code> will be set to <strong>1 day</strong> later. </p>
 <p>Consuming failure will change the message status to <code>Failed</code> and <code>ExpiresAt</code> will be set to <strong>15 days</strong> later.</p>
 <p>By default, the data of the message in the table is deleted <strong>every hour</strong> to avoid performance degradation caused by too much data. The cleanup strategy <code>ExpiresAt</code> is performed when field is not empty and is less than the current time. </p>
 <p>That is to say, the message with the status Failed (by default they have been retried 50 times), if you do not have manual intervention for 15 days, it will <strong>also be</strong> cleaned up.</p>
@@ -1649,13 +1744,13 @@
           </a>
         
         
-          <a href="../sagas/" title="Sagas" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../serialization/" title="Serialization" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Sagas
+                Serialization
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
