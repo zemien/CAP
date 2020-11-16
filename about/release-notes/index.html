@@ -949,8 +949,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/zh/cap/transactions/" title="运输" class="md-nav__link">
-      运输
+    <a href="../../user-guide/zh/cap/transactions/" title="事务" class="md-nav__link">
+      事务
     </a>
   </li>
 
@@ -1405,6 +1405,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-311-2020-09-23" class="md-nav__link">
+    Version 3.1.1 (2020-09-23)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-310-2020-08-15" class="md-nav__link">
+    Version 3.1.0 (2020-08-15)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-304-2020-05-27" class="md-nav__link">
     Version 3.0.4 (2020-05-27)
   </a>
@@ -1664,6 +1678,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-311-2020-09-23" class="md-nav__link">
+    Version 3.1.1 (2020-09-23)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-310-2020-08-15" class="md-nav__link">
+    Version 3.1.0 (2020-08-15)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-304-2020-05-27" class="md-nav__link">
     Version 3.0.4 (2020-05-27)
   </a>
@@ -1894,6 +1922,37 @@
                 
                 
                 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="version-311-2020-09-23">Version 3.1.1 (2020-09-23)<a class="headerlink" href="#version-311-2020-09-23" title="Permanent link">&para;</a></h2>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Add consumer parameter with interface suppport. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/669" title="GitHub Issue: dotnetcore/cap#669">#669</a>)</li>
+<li>Add custom correlation id and message id support. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/668" title="GitHub Issue: dotnetcore/cap#668">#668</a>)</li>
+<li>Enhanced custom serialization support. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/641" title="GitHub Issue: dotnetcore/cap#641">#641</a>)</li>
+</ul>
+<p><strong>Bug Fixed:</strong></p>
+<ul>
+<li>Solve the issue of being duplicated executors from different assemblies. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/666" title="GitHub Issue: dotnetcore/cap#666">#666</a>)</li>
+<li>Added comparer to remove duplicate ConsumerExecutors. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/653" title="GitHub Issue: dotnetcore/cap#653">#653</a>)</li>
+<li>Add re-enable the auto create topics configuration item for Kafka, it's false by default. now is true. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/635" title="GitHub Issue: dotnetcore/cap#635">#635</a>)</li>
+<li>Fixed postgresql transaction rollback invoke bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/640" title="GitHub Issue: dotnetcore/cap#640">#640</a>)</li>
+<li>Fixed SQLServer table name customize bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/632" title="GitHub Issue: dotnetcore/cap#632">#632</a>)</li>
+</ul>
+<h2 id="version-310-2020-08-15">Version 3.1.0 (2020-08-15)<a class="headerlink" href="#version-310-2020-08-15" title="Permanent link">&para;</a></h2>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Add Amazon SQS support. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/597" title="GitHub Issue: dotnetcore/cap#597">#597</a>)</li>
+<li>Remove Dapper and replace with ADO.NET in storage project. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/583" title="GitHub Issue: dotnetcore/cap#583">#583</a>)</li>
+<li>Add debug symbols package to nuget.</li>
+<li>Upgrade dependent nuget package version to latest.</li>
+<li>English docs grammar correction. Thanks <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/mzorec" title="GitHub User: mzorec">@mzorec</a></li>
+</ul>
+<p><strong>Bug Fixed:</strong></p>
+<ul>
+<li>Fix mysql transaction rollback bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/598" title="GitHub Issue: dotnetcore/cap#598">#598</a>)</li>
+<li>Fix dashboard query bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/600" title="GitHub Issue: dotnetcore/cap#600">#600</a>)</li>
+<li>Fix mongo db query bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/611" title="GitHub Issue: dotnetcore/cap#611">#611</a>)</li>
+<li>Fix dashboard browser language detection bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/631" title="GitHub Issue: dotnetcore/cap#631">#631</a>)</li>
+</ul>
 <h2 id="version-304-2020-05-27">Version 3.0.4 (2020-05-27)<a class="headerlink" href="#version-304-2020-05-27" title="Permanent link">&para;</a></h2>
 <p><strong>Bug Fixed:</strong></p>
 <ul>
@@ -2305,7 +2364,7 @@ db.CapReceivedMessage.update({},{&quot;$set&quot; : {&quot;Version&quot; : &quot
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 <a href="https://github.com/dotnetcore">NCC</a>, Maintained by the <a href="/about/contact-us/#cap-team">CAP Team</a>.
+            Copyright &copy; 2020 <a href="https://github.com/dotnetcore">NCC</a>, Maintained by the <a href="/about/contact-us/#cap-team">CAP Team</a>.
           </div>
         
         Made with
