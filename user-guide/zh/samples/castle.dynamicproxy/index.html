@@ -11,7 +11,7 @@
         <meta name="description" content="A distributed transaction solution in micro-service base on eventually consistency, also an eventbus with Outbox pattern.">
       
       
-        <link rel="canonical" href="http://cap.dotnetcore.xyz/user-guide/zh/monitoring/diagnostics/">
+        <link rel="canonical" href="http://cap.dotnetcore.xyz/user-guide/zh/samples/castle.dynamicproxy/">
       
       
         <meta name="author" content="CAP Team">
@@ -21,7 +21,7 @@
     
     
       
-        <title>性能追踪 - CAP</title>
+        <title>Castle DynamicProxy - CAP</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#castle-dynamicproxy" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              性能追踪
+              Castle DynamicProxy
             
           </span>
         </div>
@@ -1182,12 +1182,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
     <label class="md-nav__link" for="nav-3-5">
       监控
@@ -1211,7 +1209,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../consul/" title="Consul" class="md-nav__link">
+    <a href="../../monitoring/consul/" title="Consul" class="md-nav__link">
       Consul
     </a>
   </li>
@@ -1223,7 +1221,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dashboard/" title="Dashboard" class="md-nav__link">
+    <a href="../../monitoring/dashboard/" title="Dashboard" class="md-nav__link">
       Dashboard
     </a>
   </li>
@@ -1233,67 +1231,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        性能追踪
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="性能追踪" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../monitoring/diagnostics/" title="性能追踪" class="md-nav__link">
       性能追踪
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cap" class="md-nav__link">
-    CAP 中的性能追踪
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skywalking-cap" class="md-nav__link">
-    在 Skywalking 中追踪 CAP 事件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apm" class="md-nav__link">
-    其他 APM 的支持
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1303,7 +1245,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../health-checks/" title="健康检查" class="md-nav__link">
+    <a href="../../monitoring/health-checks/" title="健康检查" class="md-nav__link">
       健康检查
     </a>
   </li>
@@ -1318,10 +1260,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6" checked>
     
     <label class="md-nav__link" for="nav-3-6">
       示例
@@ -1343,11 +1287,81 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../samples/castle.dynamicproxy/" title="Castle DynamicProxy" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Castle DynamicProxy
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Castle DynamicProxy" class="md-nav__link md-nav__link--active">
       Castle DynamicProxy
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nuget" class="md-nav__link">
+    1、安装 NuGet 包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-castle" class="md-nav__link">
+    2、创建一个 Castle 切面拦截器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-iservicecollection" class="md-nav__link">
+    3、创建 IServiceCollection 的扩展类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cap" class="md-nav__link">
+    4、创建 CAP 订阅服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-startup" class="md-nav__link">
+    5、在 Startup 中集成
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1357,7 +1371,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../samples/github/" title="Github" class="md-nav__link">
+    <a href="../github/" title="Github" class="md-nav__link">
       Github
     </a>
   </li>
@@ -1369,7 +1383,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../samples/eshoponcontainers/" title="eShopOnContainers" class="md-nav__link">
+    <a href="../eshoponcontainers/" title="eShopOnContainers" class="md-nav__link">
       eShopOnContainers
     </a>
   </li>
@@ -1381,7 +1395,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../samples/faq/" title="FAQ" class="md-nav__link">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
   </li>
@@ -1489,22 +1503,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cap" class="md-nav__link">
-    CAP 中的性能追踪
+  <a href="#1-nuget" class="md-nav__link">
+    1、安装 NuGet 包
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#skywalking-cap" class="md-nav__link">
-    在 Skywalking 中追踪 CAP 事件
+  <a href="#2-castle" class="md-nav__link">
+    2、创建一个 Castle 切面拦截器
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apm" class="md-nav__link">
-    其他 APM 的支持
+  <a href="#3-iservicecollection" class="md-nav__link">
+    3、创建 IServiceCollection 的扩展类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cap" class="md-nav__link">
+    4、创建 CAP 订阅服务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-startup" class="md-nav__link">
+    5、在 Startup 中集成
   </a>
   
 </li>
@@ -1521,7 +1549,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dotnetcore/CAP/edit/master/docs/content/user-guide/zh/monitoring/diagnostics.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dotnetcore/CAP/edit/master/docs/content/user-guide/zh/samples/castle.dynamicproxy.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1529,33 +1557,101 @@
                   
                 
                 
-                <h1 id="_1">性能追踪<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Diagnostics 提供一组功能使我们能够很方便的可以记录在应用程序运行期间发生的关键性操作以及他们的执行时间等，使管理员可以查找特别是生产环境中出现问题所在的根本原因。</p>
-<h2 id="cap">CAP 中的性能追踪<a class="headerlink" href="#cap" title="Permanent link">&para;</a></h2>
-<p>在 CAP 中，对 <code>DiagnosticSource</code> 提供了支持，监听器名称为 <code>CapDiagnosticListener</code>。</p>
-<p>你可以在 <code>DotNetCore.CAP.Diagnostics.CapDiagnosticListenerNames</code> 类下面找到CAP已经定义的事件名称。</p>
-<p>Diagnostics 提供对外提供的事件信息有：</p>
-<ul>
-<li>消息持久化之前</li>
-<li>消息持久化之后</li>
-<li>消息持久化异常</li>
-<li>消息向MQ发送之前</li>
-<li>消息向MQ发送之后</li>
-<li>消息向MQ发送异常</li>
-<li>消息从MQ消费保存之前</li>
-<li>消息从MQ消费保存之后</li>
-<li>订阅者方法执行之前</li>
-<li>订阅者方法执行之后</li>
-<li>订阅者方法执行异常</li>
-</ul>
-<h2 id="skywalking-cap">在 Skywalking 中追踪 CAP 事件<a class="headerlink" href="#skywalking-cap" title="Permanent link">&para;</a></h2>
-<p>Skywalking 的 C# 客户端提供了对 CAP Diagnostics 的支持，你可以利用 <a href="https://github.com/SkyAPM/SkyAPM-dotnet">SkyAPM-dotnet</a> 来实现在 Skywalking 中追踪事件。</p>
-<p>尝试阅读Readme文档来在你的项目中集成它。</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/8205994/71006463-51025980-2120-11ea-82dc-bffa5530d515.png" /></p>
-<p><img alt="" src="https://user-images.githubusercontent.com/8205994/71006589-7b541700-2120-11ea-910b-7e0f2dfddce8.png" /></p>
-<h2 id="apm">其他 APM 的支持<a class="headerlink" href="#apm" title="Permanent link">&para;</a></h2>
-<p>目前还没有实现对除了 Skywalking 的其他APM的支持，如果你想在其他 APM 中实现对 CAP 诊断事件的支持，你可以参考这里的代码来实现它：</p>
-<p><a href="https://github.com/SkyAPM/SkyAPM-dotnet/tree/master/src/SkyApm.Diagnostics.CAP">https://github.com/SkyAPM/SkyAPM-dotnet/tree/master/src/SkyApm.Diagnostics.CAP</a></p>
+                <h1 id="castle-dynamicproxy">和 Castle DynamicProxy 集成<a class="headerlink" href="#castle-dynamicproxy" title="Permanent link">&para;</a></h1>
+<p>Castle DynamicProxy 是一个用于在运行时动态生成轻量级.NET代理的库。代理对象允许在不修改类代码的情况下截取对对象成员的调用。可以代理类和接口，但是只能拦截虚拟成员。</p>
+<p>Castle.DynamicProxy 可以帮助你方便的创建代理对象，代理对象可以帮助构建灵活的应用程序体系结构，因为它允许将功能透明地添加到代码中，而无需对其进行修改。例如，可以代理一个类来添加日志记录或安全检查，而无需使代码知道已添加此功能。</p>
+<p>下面可以看到如何在 CAP 中集成使用 Castle.DynamicProxy。</p>
+<h2 id="1-nuget">1、安装 NuGet 包<a class="headerlink" href="#1-nuget" title="Permanent link">&para;</a></h2>
+<p>在 集成了 CAP 的项目中安装包，有关如何集成 CAP 的文档请看<a href="https://cap.dotnetcore.xyz/">这里</a>。</p>
+<p>注意，<code>Castle.DynamicProxy</code> 这个包已经被废弃，请使用最新的 <code>Castle.Core</code> 包。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Castle.Core&quot;</span> <span class="na">Version=</span><span class="s">&quot;4.4.1&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+
+<h2 id="2-castle">2、创建一个 Castle 切面拦截器<a class="headerlink" href="#2-castle" title="Permanent link">&para;</a></h2>
+<p>可以在这里 <a href="https://github.com/castleproject/Core/blob/master/docs/dynamicproxy.md">dynamicproxy.md</a> 找到相关的文档。</p>
+<p>下面为示例代码，继承 Castle 提供的 <code>IInterceptor</code> 接口即可：</p>
+<div class="highlight"><pre><span></span><code>[Serializable]
+public class MyInterceptor : IInterceptor
+{
+    public void Intercept(IInvocation invocation)
+    {
+        Console.WriteLine(&quot;Before target call&quot;);
+        try
+        {
+            invocation.Proceed();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine(&quot;Target threw an exception!&quot;);
+            throw;
+        }
+        finally
+        {
+            Console.WriteLine(&quot;After target call&quot;);
+        }
+    }
+}
+</code></pre></div>
+
+<p>拦截器此处命名为 <code>MyInterceptor</code>，你可以在其中处理你的业务逻辑，比如添加日志或其他的一些行为。</p>
+<h2 id="3-iservicecollection">3、创建 IServiceCollection 的扩展类<a class="headerlink" href="#3-iservicecollection" title="Permanent link">&para;</a></h2>
+<p>为 <code>IServiceCollection</code> 创建扩展，方面后续调用。</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="nn">Castle.DynamicProxy</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">ServicesExtensions</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">AddProxiedSingleton</span><span class="p">&lt;</span><span class="n">TImplementation</span><span class="p">&gt;(</span><span class="k">this</span> <span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
+        <span class="k">where</span> <span class="n">TImplementation</span> <span class="p">:</span> <span class="k">class</span>
+    <span class="p">{</span>
+        <span class="n">services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="p">(</span><span class="n">serviceProvider</span> <span class="p">=&gt;</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">proxyGenerator</span> <span class="p">=</span> <span class="n">serviceProvider</span><span class="p">.</span><span class="n">GetRequiredService</span><span class="p">&lt;</span><span class="n">ProxyGenerator</span><span class="p">&gt;();</span>
+            <span class="kt">var</span> <span class="n">interceptors</span> <span class="p">=</span> <span class="n">serviceProvider</span><span class="p">.</span><span class="n">GetServices</span><span class="p">&lt;</span><span class="n">IInterceptor</span><span class="p">&gt;().</span><span class="n">ToArray</span><span class="p">();</span>
+            <span class="k">return</span> <span class="n">proxyGenerator</span><span class="p">.</span><span class="n">CreateClassProxy</span><span class="p">&lt;</span><span class="n">TImplementation</span><span class="p">&gt;(</span><span class="n">interceptors</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>此处我创建了一个 Singleton 声明周期的扩展方法，建议所有 CAP 的订阅者都创建为 Singleton 即可，因为在 CAP 内部实际执行的时候也会创建一个 scope 来执行，所以无需担心资源释放问题。</p>
+<h2 id="4-cap">4、创建 CAP 订阅服务<a class="headerlink" href="#4-cap" title="Permanent link">&para;</a></h2>
+<p>创建一个 CAP 订阅类，注意不能放在 Controller 中了。</p>
+<p><strong>注意：方法需要为虚方法 virtual，才能被 Castle 重写，别搞忘了加！！！</strong>  </p>
+<div class="highlight"><pre><span></span><code>public class CapSubscribeService: ICapSubscribe
+{
+    [CapSubscribe(&quot;sample.rabbitmq.mysql&quot;)]
+    public virtual void Subscriber(DateTime p)
+    {
+        Console.WriteLine($@&quot;{DateTime.Now} Subscriber invoked, Info: {p}&quot;);
+    }
+}
+</code></pre></div>
+
+<h2 id="5-startup">5、在 Startup 中集成<a class="headerlink" href="#5-startup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>public void ConfigureServices(IServiceCollection services)
+{
+    // 添加 Castle 的代理生成器
+    services.AddSingleton(new ProxyGenerator());
+
+    // 添加第2步的自定义的拦截类，声明周期为
+    services.AddSingleton&lt;IInterceptor, MyInterceptor&gt;();
+
+    // 此处为上面的扩展方法， 添加 CAP 订阅 Service
+    services.AddProxiedSingleton&lt;CapSubscribeService&gt;();
+
+    services.AddCap(x =&gt;
+    {
+        x.UseMySql(&quot;&quot;);
+        x.UseRabbitMQ(&quot;&quot;);
+        x.UseDashboard();
+    });
+
+    // ...
+}
+</code></pre></div>
+
+<p>以上就完成了所有的集成工作，可以开始进行测试了，有问题欢迎到 <a href="https://github.com/dotnetcore/CAP/issues">Github issue</a> 反馈。</p>
+<p><strong>注意： CAP 需要使用 5.0 + 版本，目前(2021年1月6日)只有 preview 版本。</strong></p>
                 
               
               
@@ -1574,7 +1670,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../dashboard/" title="Dashboard" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../monitoring/health-checks/" title="健康检查" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1583,19 +1679,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Dashboard
+                健康检查
               </div>
             </div>
           </a>
         
         
-          <a href="../health-checks/" title="健康检查" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../github/" title="Github" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                健康检查
+                Github
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
